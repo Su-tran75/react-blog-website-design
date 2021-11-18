@@ -1,7 +1,9 @@
+import TopBar from "./topBar/TopBar";
+
 function App() {
   return (
     <div className="App">
-    React Blog App
+      <TopBar />
     </div>
   );
 }

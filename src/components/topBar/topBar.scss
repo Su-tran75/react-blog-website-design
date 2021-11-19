@@ -52,6 +52,20 @@
       object-fit: cover;
     }
 
+    .topList {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      list-style: none;
+    }
+
+    .topListItem {
+      margin-right: 20px;
+      font-size: 18px;
+      font-weight: 300;
+      cursor: pointer;
+    }
+
     .topSearchIcon {
       font-size: 18px;
       color: #666;

@@ -9,7 +9,7 @@ const CategorySchema = new mongoose.Schema(
     },
   },
   {
-    timestamp: true,
+    timestamps: true,
   }
 );
 

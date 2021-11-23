@@ -7,9 +7,8 @@ import axios from "axios";
 export default function Login() {
   const usernameRef = useRef();
   const passwordRef = useRef();
-  const { user, dispatch, isFetching } = useContext(Context);
-  console.log("Login -> isFetching", isFetching);
-  console.log("Login -> user", user);
+  const { dispatch, isFetching } = useContext(Context);
+
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -40,7 +39,7 @@ export default function Login() {
           placeholder="Enter your password"
           ref={passwordRef}
         />
-        <button className="loginButton" type="submit">
+        <button className="loginButton" type="submit" disabled={isFetching}>
           Login
         </button>
       </form>

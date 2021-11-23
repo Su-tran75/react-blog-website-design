@@ -26,7 +26,7 @@ export default function SideBar() {
     return () => {
       source.cancel();
     };
-  }, [cats]);
+  }, []);
 
   return (
     <div className="sideBar">

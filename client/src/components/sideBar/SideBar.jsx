@@ -1,17 +1,33 @@
 import React, { useState, useEffect } from "react";
 import "./sideBar.scss";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 export default function SideBar() {
   const [cats, setCats] = useState([]);
 
   useEffect(() => {
+    const source = axios.CancelToken.source();
+
     const fetchCats = async () => {
-      const res = await axios.get("/categories");
-      setCats(res.data);
+      try {
+        const res = await axios.get("/categories", {
+          cancelToken: source.token,
+        });
+        setCats(res.data);
+      } catch (err) {
+        if (axios.isCancel(err)) {
+        } else {
+          throw err;
+        }
+      }
     };
     fetchCats();
+    return () => {
+      source.cancel();
+    };
   }, [cats]);
+
   return (
     <div className="sideBar">
       <div className="sideBarItem">
@@ -31,7 +47,9 @@ export default function SideBar() {
         <span className="sideBarTitle">CATEGORIES</span>
         <ul className="sideBarList">
           {cats.map((c) => (
-            <li className="sideBarListItem">{c.name}</li>
+            <Link to={`/?cat=${c.name}`} className="link" key={c._id}>
+              <li className="sideBarListItem">{c.name}</li>
+            </Link>
           ))}
         </ul>
       </div>

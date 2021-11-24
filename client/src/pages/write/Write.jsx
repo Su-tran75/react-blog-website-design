@@ -9,7 +9,6 @@ export default function Write() {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [file, setFile] = useState(null);
-  console.log("Write -> file", file)
   const { user } = useContext(Context);
 
   const handleSubmit = async (e) => {

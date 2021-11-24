@@ -1,12 +1,12 @@
 import React from "react";
 import "./single.scss";
 import SideBar from "../../components/sideBar/SideBar";
-import SInglePost from "../../components/singlePost/SInglePost";
+import SinglePost from "../../components/singlePost/SinglePost";
 
 export default function Single() {
   return (
     <div className="single">
-      <SInglePost />
+      <SinglePost />
       <SideBar />
     </div>
   );

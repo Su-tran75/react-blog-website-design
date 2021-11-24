@@ -3,7 +3,7 @@ import "./singlePost.scss";
 import { useLocation, Link } from "react-router-dom";
 import axios from "axios";
 
-export default function SInglePost() {
+export default function SinglePost() {
   const location = useLocation();
   const path = location.pathname.split("/")[2];
   const [post, setPost] = useState({});
